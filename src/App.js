@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { useState, useEffect } from 'react';
 import PageHeading from "./PageHeading.js";
 import './App.css';
@@ -8,7 +9,7 @@ function App() {
   const [author, setAuthor] = useState("");
 
   const handleSubmit = (event) => {
-    event.preventDefault();
+    // event.preventDefault();
     console.log("click click");
   }
 
@@ -31,7 +32,7 @@ function App() {
       <h2>"{message}"</h2>
       <h3>-{author}</h3>
       {/* maybe place a button component here */}
-      <button onClick={handleSubmit}>Get New Quote</button>
+      <button type="submit" onClick={handleSubmit}>Get New Quote</button>
     </div>
   );
 }
