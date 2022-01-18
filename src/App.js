@@ -21,9 +21,9 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Daily Stoic Quotes</h1>
-      <p>"{message}"</p>
-      <p>-{author}</p>
+      <h1>Stoic Quotes</h1>
+      <h2>"{message}"</h2>
+      <h3>-{author}</h3>
     </div>
   );
 }
