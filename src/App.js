@@ -9,8 +9,8 @@ function App() {
   const [author, setAuthor] = useState("");
 
   const handleSubmit = (event) => {
-    // event.preventDefault();
-    console.log("click click");
+    event.preventDefault();
+    window.location.reload();
   }
 
   // fetch json data from the stoic quotes api
