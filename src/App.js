@@ -7,6 +7,11 @@ function App() {
   const [message, setMessage] = useState("");
   const [author, setAuthor] = useState("");
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log("click click");
+  }
+
   // fetch json data from the stoic quotes api
   // https://stoicquotesapi.com/
   useEffect(() => {
@@ -26,6 +31,7 @@ function App() {
       <h2>"{message}"</h2>
       <h3>-{author}</h3>
       {/* maybe place a button component here */}
+      <button onClick={handleSubmit}>Get New Quote</button>
     </div>
   );
 }
