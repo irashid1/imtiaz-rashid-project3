@@ -7,7 +7,7 @@ function App() {
   const [author, setAuthor] = useState("");
   
   // fetch json data from the stoic quotes api
-  // https://stoicquotesapi.com/docs
+  // https://stoicquotesapi.com/
   useEffect(() => {
     fetch(`https://stoicquotesapi.com/v1/api/quotes/random`)
       .then(res => res.json())
@@ -22,8 +22,8 @@ function App() {
   return (
     <div className="App">
       <h1>Daily Stoic Quotes</h1>
-      <p>{message}</p>
-      <p>{author}</p>
+      <p>"{message}"</p>
+      <p>-{author}</p>
     </div>
   );
 }
