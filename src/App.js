@@ -14,7 +14,7 @@ function App() {
       .then((jsonRes) => {
         console.log(jsonRes);
         setMessage(jsonRes.body);
-        setAuthor(jsonRes.author)
+        setAuthor(jsonRes.author);
       })
   }, []);
   // populate fetched data on to the screen
@@ -24,6 +24,7 @@ function App() {
       <h1>Stoic Quotes</h1>
       <h2>"{message}"</h2>
       <h3>-{author}</h3>
+      {/* maybe place a button component here */}
     </div>
   );
 }
