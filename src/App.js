@@ -1,4 +1,4 @@
-import axios from 'axios';
+// import axios from 'axios';
 import { useState, useEffect } from 'react';
 import PageHeading from "./PageHeading.js";
 import './App.css';
@@ -9,7 +9,7 @@ function App() {
   const [author, setAuthor] = useState("");
 
   const handleSubmit = (event) => {
-    event.preventDefault();
+    // event.preventDefault();
     window.location.reload();
   }
 
