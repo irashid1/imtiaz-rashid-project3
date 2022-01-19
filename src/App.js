@@ -35,12 +35,12 @@ function App() {
 
   useEffect(() => {
     axios({
-      url: "https://api.unsplash.com/search/photos",
+      url: "https://api.unsplash.com/search/photos/",
       method: "GET",
       dataResponse: "json",
       params: {
         query: "space",
-        per_page: 10,
+        per_page: 1,
         client_id: "TKIetucrCKUutruuIA61j3V6l3Zxra12cwMPYIEuJ_4",
       },
     }).then((response) => {
@@ -70,8 +70,7 @@ function App() {
         return { ...photo, orientation: orientation };
       });
       console.log(withOrientation);
-
-
+      console.log(photos);
       // Updating state with our new array
       setAllPhotos(withOrientation);
     }).catch((error) => {
@@ -89,6 +88,22 @@ function App() {
       <h3>-{author}</h3>
       {/* maybe place a button component here */}
       <button type="submit" onClick={handleSubmit}>Get New Quote</button>
+      <p></p>
+
+      {
+        // looping through the photos and dynamically rendering them to the screen
+        allPhotos.map((photo) => {
+          return (
+            <div key={photo.id}>
+              <img
+                alt={photo.alt_description}
+                src={photo.urls.small}
+              />
+            </div>
+          )
+        })
+      }
+
     </div>
   );
 }
