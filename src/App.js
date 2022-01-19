@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 // components
 import PageHeading from "./components/PageHeading.js";
-// import DisplayPhotos from './components/DisplayPhotos.js';
+import DisplayPhotos from './components/DisplayPhotos.js';
 // // styling
 import './App.css';
 
@@ -13,10 +13,11 @@ function App() {
   const [author, setAuthor] = useState("");
 
   const [allPhotos, setAllPhotos] = useState([]);
+  const [randomizer, setRandomizer] = useState(false);
 
   const handleSubmit = (event) => {
-    // event.preventDefault();
-    window.location.reload();
+    event.preventDefault();
+    setRandomizer(!randomizer);
   }
 
   // fetch json data from the stoic quotes api
@@ -31,7 +32,7 @@ function App() {
       }).catch((error) => {
         console.log(error);
       })
-  }, [])
+  }, [randomizer])
 
   // fetch json data from the unsplash api
   // https://api.unsplash.com/search/photos/
@@ -56,32 +57,12 @@ function App() {
     })
   }, [])
 
-    // Trying to match the syntax of the first useEffect
-    // .then(response => response.data())
-    // .then((jsonResponse) => {
-    //   setAllPhotos(jsonResponse.results)
-    // })
-
-
   // populate fetched data on to the screen
 
   return (
     <div className="App">
       <PageHeading />
-      {
-        // looping through the photos and dynamically rendering them to the screen
-        allPhotos.map((photo) => {
-          return (
-            <div key={photo.id}>
-              <img
-                alt={photo.alt_description}
-                src={photo.urls.small}
-              />
-            </div>
-          )
-        })
-      }
-      {/* <DisplayPhotos /> */}
+      <DisplayPhotos allPhotos={ allPhotos } />
       <h2>"{message}"</h2>
       <h3>-{author}</h3>
       {/* maybe place a button component here */}
