@@ -84,12 +84,6 @@ function App() {
   return (
     <div className="App">
       <PageHeading />
-      <h2>"{message}"</h2>
-      <h3>-{author}</h3>
-      {/* maybe place a button component here */}
-      <button type="submit" onClick={handleSubmit}>Get New Quote</button>
-      <p></p>
-
       {
         // looping through the photos and dynamically rendering them to the screen
         allPhotos.map((photo) => {
@@ -103,6 +97,10 @@ function App() {
           )
         })
       }
+      <h2>"{message}"</h2>
+      <h3>-{author}</h3>
+      {/* maybe place a button component here */}
+      <button type="submit" onClick={handleSubmit}>Get New Quote</button>
 
     </div>
   );
