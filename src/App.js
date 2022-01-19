@@ -2,8 +2,9 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 // components
-import PageHeading from "./PageHeading.js";
-// styling
+import PageHeading from "./components/PageHeading.js";
+// import DisplayPhotos from './components/DisplayPhotos.js';
+// // styling
 import './App.css';
 
 function App() {
@@ -55,6 +56,13 @@ function App() {
     })
   }, [])
 
+    // Trying to match the syntax of the first useEffect
+    // .then(response => response.data())
+    // .then((jsonResponse) => {
+    //   setAllPhotos(jsonResponse.results)
+    // })
+
+
   // populate fetched data on to the screen
 
   return (
@@ -73,6 +81,7 @@ function App() {
           )
         })
       }
+      {/* <DisplayPhotos /> */}
       <h2>"{message}"</h2>
       <h3>-{author}</h3>
       {/* maybe place a button component here */}
@@ -83,3 +92,7 @@ function App() {
 }
 
 export default App;
+
+
+
+
