@@ -27,18 +27,21 @@ function App() {
         // console.log(jsonRes);
         setMessage(jsonRes.body);
         setAuthor(jsonRes.author);
+      }).catch((error) => {
+        console.log(error);
       })
-  }, []);
-  // populate fetched data on to the screen
+  }, [])
 
-
+  // fetch json data from the unsplash api
+  // https://api.unsplash.com/search/photos/
 
   useEffect(() => {
     axios({
-      url: "https://api.unsplash.com/search/photos/",
+      url: `https://api.unsplash.com/search/photos/`,
       method: "GET",
       dataResponse: "json",
       params: {
+        collections: "",
         query: "space",
         per_page: 1,
         client_id: "TKIetucrCKUutruuIA61j3V6l3Zxra12cwMPYIEuJ_4",
@@ -46,40 +49,13 @@ function App() {
     }).then((response) => {
       // console.log(response);
       const photos = response.data.results;
-      // const { results, total, total_pages } = response.data
-      // - this is returning the results array via obj deconstructing
-      // console.log(photos);
-      // console.log(results);
-
-      const withOrientation = photos.map((photo) => {
-        const ratio = photo.width / photo.height;
-        // const { width, height } = photo;
-
-        let orientation
-        // setting the orientation variable based on the ratio
-
-        if (ratio < 0.75) {
-          orientation = "portrait";
-        } else if (ratio > 1.35) {
-          orientation = "landscape";
-        } else {
-          orientation = "square";
-        }
-        // adding orientation property to our photo object
-
-        return { ...photo, orientation: orientation };
-      });
-      console.log(withOrientation);
-      console.log(photos);
-      // Updating state with our new array
-      setAllPhotos(withOrientation);
+      setAllPhotos(photos);
     }).catch((error) => {
       console.log(error);
     })
   }, [])
 
-
-
+  // populate fetched data on to the screen
 
   return (
     <div className="App">
