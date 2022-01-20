@@ -20,6 +20,12 @@ function App() {
     setRandomizer(!randomizer);
   }
 
+  const getRandomInt = ((min, max) => {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
+  })
+
   // fetch json data from the stoic quotes api
   // https://stoicquotesapi.com/
   useEffect(() => {
@@ -44,26 +50,31 @@ function App() {
       dataResponse: "json",
       params: {
         collections: "",
-        query: "space",
-        per_page: 1,
+        query: "galaxy",
+        per_page: 30,
         client_id: "TKIetucrCKUutruuIA61j3V6l3Zxra12cwMPYIEuJ_4",
       },
     }).then((response) => {
       // console.log(response);
       const photos = response.data.results;
-      setAllPhotos(photos);
+
+      let index = getRandomInt(0, 30);
+      const randomPhotoArray = [photos[index]];
+
+      setAllPhotos(randomPhotoArray);
+      // console.log(photos);
     }).catch((error) => {
       console.log(error);
     })
-  }, [])
+  }, [randomizer])
 
   // populate fetched data on to the screen
 
   return (
     <div className="App">
       <PageHeading />
-      <DisplayPhotos allPhotos={ allPhotos } />
-      
+      <DisplayPhotos allPhotos={allPhotos} />
+
       {/* maybe place a button component here */}
       <p></p>
       <button type="submit" onClick={handleSubmit}>Get New Quote</button>
