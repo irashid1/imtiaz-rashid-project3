@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 // components
 import PageHeading from "./components/PageHeading.js";
 import DisplayPhotos from './components/DisplayPhotos.js';
-import Button from './components/Button.js';
+// import Button from './components/Button.js';
 // // styling
 import './App.scss';
 
