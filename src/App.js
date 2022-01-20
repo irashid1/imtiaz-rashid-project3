@@ -6,7 +6,7 @@ import PageHeading from "./components/PageHeading.js";
 import DisplayPhotos from './components/DisplayPhotos.js';
 // import Button from './components/Button.js';
 // // styling
-import './App.scss';
+import './styles/sass/App.scss';
 
 function App() {
 
