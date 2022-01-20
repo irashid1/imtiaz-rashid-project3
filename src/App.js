@@ -63,11 +63,12 @@ function App() {
     <div className="App">
       <PageHeading />
       <DisplayPhotos allPhotos={ allPhotos } />
+      
+      {/* maybe place a button component here */}
+      <p></p>
+      <button type="submit" onClick={handleSubmit}>Get New Quote</button>
       <h2>"{message}"</h2>
       <h3>-{author}</h3>
-      {/* maybe place a button component here */}
-      <button type="submit" onClick={handleSubmit}>Get New Quote</button>
-
     </div>
   );
 }
