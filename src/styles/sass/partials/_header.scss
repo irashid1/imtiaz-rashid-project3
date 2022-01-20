@@ -1,3 +1,11 @@
-h1 {
-    font-style: Bold;
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Unicase&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Trispace&display=swap');
+
+h1, h3 {
+    font-family: 'Cormorant Unicase', serif;
 }
+
+h2, button {
+    font-family: 'Trispace', sans-serif;
+}
+

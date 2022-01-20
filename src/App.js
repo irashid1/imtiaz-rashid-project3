@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 // components
 import PageHeading from "./components/PageHeading.js";
 import DisplayPhotos from './components/DisplayPhotos.js';
-// import Button from './components/Button.js';
+import Button from './components/Button.js';
 // // styling
 import './styles/sass/App.scss';
 
@@ -53,17 +53,24 @@ function App() {
         collections: "",
         query: "galaxy",
         per_page: 30,
+        orientation: "landscape",
         client_id: "TKIetucrCKUutruuIA61j3V6l3Zxra12cwMPYIEuJ_4",
       },
     }).then((response) => {
       // console.log(response);
       const photos = response.data.results;
+      // console.log(photos);
+      // const filteredPhotos = photos.filter(photo => 
+      //   photo.width > ((photo.height) * 1.25)
+      // )
 
+      // let index = getRandomInt(0, filteredPhotos.length);
+      // const randomPhotoArray = [filteredPhotos[index]];
       let index = getRandomInt(0, 30);
       const randomPhotoArray = [photos[index]];
 
       setAllPhotos(randomPhotoArray);
-      // console.log(photos);
+     
     }).catch((error) => {
       console.log(error);
     })
@@ -76,8 +83,8 @@ function App() {
       <PageHeading />
       <DisplayPhotos allPhotos={allPhotos} />
       <p></p>
-      <button type="submit" onClick={handleSubmit}>{"Get New Quote"}</button>
-      {/* <Button handerFunction={handleSubmit} buttonText={`Get New Quote`} /> */}
+      {/* <button type="submit" onClick={handleSubmit}>{"Get New Quote"}</button> */}
+      <Button handlerFunction={handleSubmit} buttonText={`Get New Quote`} />
       <h2>"{message}"</h2>
       <h3>-{author}</h3>
     </div>

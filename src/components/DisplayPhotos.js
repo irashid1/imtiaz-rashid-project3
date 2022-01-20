@@ -13,10 +13,10 @@ const DisplayPhotos = (props) => {
                                 // looping through the photos and dynamically rendering them to the screen
                                 props.allPhotos.map((photo) => {
                                     return (
-                                        <div key={photo.id}>
+                                        <div className="imageContainer" key={photo.id}>
                                             <img
                                                 alt={photo.alt_description}
-                                                src={photo.urls.small}
+                                                src={photo.urls.regular}
                                             />
                                         </div>
                                     )
