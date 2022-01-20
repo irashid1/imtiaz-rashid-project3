@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 // components
 import PageHeading from "./components/PageHeading.js";
 import DisplayPhotos from './components/DisplayPhotos.js';
+import Button from './components/Button.js';
 // // styling
 import './App.scss';
 
@@ -74,10 +75,9 @@ function App() {
     <div className="App">
       <PageHeading />
       <DisplayPhotos allPhotos={allPhotos} />
-
-      {/* maybe place a button component here */}
       <p></p>
-      <button type="submit" onClick={handleSubmit}>Get New Quote</button>
+      <button type="submit" onClick={handleSubmit}>{"Get New Quote"}</button>
+      {/* <Button handerFunction={handleSubmit} buttonText={`Get New Quote`} /> */}
       <h2>"{message}"</h2>
       <h3>-{author}</h3>
     </div>
