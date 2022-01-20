@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import PageHeading from "./components/PageHeading.js";
 import DisplayPhotos from './components/DisplayPhotos.js';
 // // styling
-import './App.css';
+import './App.scss';
 
 function App() {
 
