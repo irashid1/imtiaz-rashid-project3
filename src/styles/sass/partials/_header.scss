@@ -1,11 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Unicase&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Trispace&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@200&display=swap');
 
 h1, h3 {
     font-family: 'Cormorant Unicase', serif;
+    font-weight: 100;
+    color: black;
 }
 
 h2, button {
-    font-family: 'Trispace', sans-serif;
+    font-family: 'Mukta', sans-serif;
+    font-weight: 200;
+    color: black;
 }
 
+h1 {
+    font-size: 3.5rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+h3 {
+    font-size: 1.25rem;
+}
+
+button {
+    font-size: 1rem;
+}

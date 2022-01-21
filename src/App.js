@@ -82,7 +82,6 @@ function App() {
     <div className="App">
       <PageHeading />
       <DisplayPhotos allPhotos={allPhotos} />
-      <p></p>
       {/* <button type="submit" onClick={handleSubmit}>{"Get New Quote"}</button> */}
       <Button handlerFunction={handleSubmit} buttonText={`Get New Quote`} />
       <h2>"{message}"</h2>
