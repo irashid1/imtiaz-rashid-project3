@@ -10,21 +10,24 @@ import './styles/sass/App.scss';
 
 function App() {
 
+  // useState objects
   const [message, setMessage] = useState("");
   const [author, setAuthor] = useState("");
-
   const [allPhotos, setAllPhotos] = useState([]);
   const [randomizer, setRandomizer] = useState(false);
 
+  // a function to trigger a button submission
   const handleSubmit = (event) => {
     event.preventDefault();
     setRandomizer(!randomizer);
   }
-
+  
+  // a function to get a min an max value between two numbers
   const getRandomInt = ((min, max) => {
     min = Math.ceil(min);
     max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
+    return Math.floor(Math.random() * (max - min) + min); 
+    // the maximum is exclusive and the minimum is inclusive
   })
 
   // fetch json data from the stoic quotes api
@@ -43,7 +46,6 @@ function App() {
 
   // fetch json data from the unsplash api
   // https://api.unsplash.com/search/photos/
-
   useEffect(() => {
     axios({
       url: `https://api.unsplash.com/search/photos/`,
@@ -59,13 +61,9 @@ function App() {
     }).then((response) => {
       // console.log(response);
       const photos = response.data.results;
-      // console.log(photos);
-      // const filteredPhotos = photos.filter(photo => 
-      //   photo.width > ((photo.height) * 1.25)
-      // )
-
-      // let index = getRandomInt(0, filteredPhotos.length);
-      // const randomPhotoArray = [filteredPhotos[index]];
+      
+      // creates a random integer between 0 and 30 (0 being inclusive, 30 being exclusive) and assigns it to index
+      // randomPhotoArray then stores the randomly selected photo in the array
       let index = getRandomInt(0, 30);
       const randomPhotoArray = [photos[index]];
 
@@ -77,12 +75,10 @@ function App() {
   }, [randomizer])
 
   // populate fetched data on to the screen
-
   return (
     <div className="App">
       <PageHeading />
       <DisplayPhotos allPhotos={allPhotos} />
-      {/* <button type="submit" onClick={handleSubmit}>{"Get New Quote"}</button> */}
       <Button handlerFunction={handleSubmit} buttonText={`Get New Quote`} />
       <h2>"{message}"</h2>
       <h3>-{author}</h3>

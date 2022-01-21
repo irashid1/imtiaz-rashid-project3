@@ -1,5 +1,4 @@
 const DisplayPhotos = (props) => {
-    // console.log(props);
     return (
         <section>
             {
