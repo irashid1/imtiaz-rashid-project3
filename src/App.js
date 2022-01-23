@@ -5,8 +5,10 @@ import { useState, useEffect } from 'react';
 import PageHeading from "./components/PageHeading.js";
 import DisplayPhotos from './components/DisplayPhotos.js';
 import Button from './components/Button.js';
+import PageFooter from './components/PageFooter.js';
 // // styling
 import './styles/sass/App.scss';
+
 
 function App() {
 
@@ -82,6 +84,7 @@ function App() {
       <Button handlerFunction={handleSubmit} buttonText={`Get New Quote`} />
       <h2>"{message}"</h2>
       <h3>-{author}</h3>
+      <PageFooter />
     </div>
   );
 }
